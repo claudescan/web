@@ -1,0 +1,31 @@
+{
+  "name": "claudescan",
+  "version": "1.0.0",
+  "description": "ClaudeScan - Claude Chain Blockchain Explorer for $CCH Token",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "npx vite",
+    "build": "npx vite build",
+    "preview": "npx vite preview",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.22.0",
+    "lucide-react": "^0.344.0",
+    "express": "^4.18.2",
+    "compression": "^1.7.4",
+    "vite": "^5.1.0",
+    "@vitejs/plugin-react": "^4.2.1",
+    "sass": "^1.71.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.55",
+    "@types/react-dom": "^18.2.19"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

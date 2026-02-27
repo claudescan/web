@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <defs>
+    <linearGradient id="claudeGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8b5cf6"/>
+      <stop offset="50%" stop-color="#a78bfa"/>
+      <stop offset="100%" stop-color="#c4b5fd"/>
+    </linearGradient>
+    <linearGradient id="claudeGrad2" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#7c3aed"/>
+      <stop offset="100%" stop-color="#8b5cf6"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Outer ring -->
+  <circle cx="50" cy="50" r="46" fill="none" stroke="url(#claudeGrad1)" stroke-width="2" opacity="0.5"/>
+  
+  <!-- Main circle background -->
+  <circle cx="50" cy="50" r="42" fill="url(#claudeGrad1)"/>
+  
+  <!-- Inner decorative rings -->
+  <circle cx="50" cy="50" r="35" fill="none" stroke="white" stroke-width="0.5" opacity="0.2"/>
+  <circle cx="50" cy="50" r="28" fill="none" stroke="white" stroke-width="0.5" opacity="0.15"/>
+  
+  <!-- Claude-inspired sunburst pattern -->
+  <g filter="url(#glow)" opacity="0.9">
+    <!-- Central rays -->
+    <path d="M50 15 L53 30 L50 25 L47 30 Z" fill="white" opacity="0.9"/>
+    <path d="M50 85 L53 70 L50 75 L47 70 Z" fill="white" opacity="0.9"/>
+    <path d="M15 50 L30 53 L25 50 L30 47 Z" fill="white" opacity="0.9"/>
+    <path d="M85 50 L70 53 L75 50 L70 47 Z" fill="white" opacity="0.9"/>
+    
+    <!-- Diagonal rays -->
+    <path d="M25 25 L36 34 L32 32 L34 36 Z" fill="white" opacity="0.7"/>
+    <path d="M75 75 L64 66 L68 68 L66 64 Z" fill="white" opacity="0.7"/>
+    <path d="M75 25 L66 34 L68 32 L64 36 Z" fill="white" opacity="0.7"/>
+    <path d="M25 75 L34 66 L32 68 L36 64 Z" fill="white" opacity="0.7"/>
+  </g>
+  
+  <!-- Central C letterform -->
+  <g transform="translate(50, 50)">
+    <path 
+      d="M8 -12 
+         C-8 -12, -16 -4, -16 8 
+         C-16 20, -8 28, 8 28 
+         C14 28, 18 26, 20 22
+         L14 18
+         C12 20, 10 22, 6 22
+         C-2 22, -8 16, -8 8
+         C-8 0, -2 -6, 6 -6
+         C10 -6, 12 -4, 14 -2
+         L20 -6
+         C18 -10, 14 -12, 8 -12 Z" 
+      fill="white" 
+      transform="translate(-2, -8) scale(0.8)"
+      opacity="0.95"
+    />
+  </g>
+  
+  <!-- Orbiting dots representing chain/network -->
+  <circle cx="50" cy="8" r="3" fill="white" opacity="0.8"/>
+  <circle cx="92" cy="50" r="2.5" fill="white" opacity="0.6"/>
+  <circle cx="50" cy="92" r="2" fill="white" opacity="0.5"/>
+  <circle cx="8" cy="50" r="2.5" fill="white" opacity="0.6"/>
+</svg>

@@ -1,0 +1,14 @@
+# ClaudeScan - Render Deployment
+# Contract: zvDFbTf9wf4paJrKZs7pJ3xbvWW9QcXdsspSXthdCCH
+
+services:
+  - type: web
+    name: claudescan
+    env: node
+    buildCommand: npm install && npm run build
+    startCommand: node server.js
+    
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html

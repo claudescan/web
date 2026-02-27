@@ -1,0 +1,307 @@
+// ClaudeScan — Footer Styles
+
+.claude-footer {
+  margin-top: auto;
+
+  // Contract Address Section
+  .contract-section {
+    background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    padding: 32px 0;
+
+    .contract-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .contract-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--accent-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .contract-address-box {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 16px 24px;
+      background: var(--bg-tertiary);
+      border: 2px solid var(--accent-primary);
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(139, 92, 246, 0.2);
+
+      .contract-address {
+        font-size: 16px;
+        font-family: var(--font-family-mono);
+        font-weight: 500;
+        color: var(--text-primary);
+        letter-spacing: 0.02em;
+      }
+
+      .copy-btn {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        background: var(--accent-primary);
+        border: none;
+        border-radius: 8px;
+        font-size: 13px;
+        font-weight: 600;
+        color: white;
+        cursor: pointer;
+        transition: all 0.15s;
+
+        &:hover {
+          background: var(--accent-primary-dark);
+          transform: translateY(-1px);
+        }
+      }
+    }
+
+    .contract-links {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+
+      a {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        padding: 8px 16px;
+        background: var(--bg-secondary);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--text-secondary);
+        text-decoration: none;
+        transition: all 0.15s;
+
+        &:hover {
+          background: var(--bg-hover);
+          border-color: var(--accent-primary);
+          color: var(--accent-primary);
+        }
+      }
+    }
+
+    @media (max-width: 768px) {
+      padding: 24px 0;
+
+      .contract-address-box {
+        flex-direction: column;
+        padding: 16px;
+        text-align: center;
+
+        .contract-address {
+          font-size: 12px;
+          word-break: break-all;
+        }
+      }
+
+      .contract-links {
+        gap: 8px;
+
+        a {
+          padding: 6px 12px;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+
+  // Main Footer
+  .footer-main {
+    padding: 48px 0 32px;
+    background: var(--bg-secondary);
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+      gap: 48px;
+
+      @media (max-width: 1024px) {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+
+      @media (max-width: 768px) {
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+      }
+
+      @media (max-width: 480px) {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .footer-brand {
+      @media (max-width: 1024px) {
+        grid-column: span 3;
+      }
+
+      @media (max-width: 768px) {
+        grid-column: span 2;
+      }
+
+      @media (max-width: 480px) {
+        grid-column: span 1;
+      }
+
+      .brand-logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+        margin-bottom: 16px;
+
+        .brand-text {
+          display: flex;
+          flex-direction: column;
+
+          .brand-name {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-primary);
+            background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+          }
+
+          .brand-tagline {
+            font-size: 12px;
+            color: var(--text-muted);
+          }
+        }
+      }
+
+      .brand-description {
+        font-size: 14px;
+        line-height: 1.6;
+        color: var(--text-muted);
+        margin-bottom: 20px;
+        max-width: 300px;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 8px;
+
+        a {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 40px;
+          height: 40px;
+          background: var(--bg-tertiary);
+          border: 1px solid var(--border-color);
+          border-radius: 10px;
+          color: var(--text-muted);
+          text-decoration: none;
+          transition: all 0.15s;
+
+          &:hover {
+            background: var(--accent-primary);
+            border-color: var(--accent-primary);
+            color: white;
+            transform: translateY(-2px);
+          }
+        }
+      }
+    }
+
+    .footer-column {
+      h4 {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 16px;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      a {
+        display: block;
+        padding: 6px 0;
+        font-size: 14px;
+        color: var(--text-muted);
+        text-decoration: none;
+        transition: color 0.15s;
+
+        &:hover {
+          color: var(--accent-primary);
+        }
+      }
+    }
+  }
+
+  // Footer Bottom
+  .footer-bottom {
+    padding: 20px 0;
+    background: var(--bg-primary);
+    border-top: 1px solid var(--border-color);
+
+    .bottom-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .copyright {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .bottom-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+
+      a {
+        font-size: 13px;
+        color: var(--text-muted);
+        text-decoration: none;
+        transition: color 0.15s;
+
+        &:hover {
+          color: var(--text-primary);
+        }
+      }
+
+      .powered-by {
+        font-size: 13px;
+        color: var(--text-muted);
+
+        a {
+          color: var(--accent-primary);
+          font-weight: 500;
+        }
+      }
+    }
+
+    @media (max-width: 768px) {
+      .bottom-content {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  }
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+}

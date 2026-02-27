@@ -1,0 +1,525 @@
+// ClaudeScan — Shared Page Styles
+
+.page {
+  padding: 24px 0 48px;
+  min-height: calc(100vh - 200px);
+
+  &.loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.page-header {
+  margin-bottom: 24px;
+
+  .page-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+  }
+
+  .page-subtitle {
+    font-size: 14px;
+    color: var(--text-muted);
+  }
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 16px;
+  font-size: 14px;
+  color: var(--text-muted);
+  text-decoration: none;
+
+  &:hover {
+    color: var(--accent-primary);
+  }
+}
+
+.signature-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+
+  .label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--accent-primary);
+    text-transform: uppercase;
+  }
+
+  .value {
+    flex: 1;
+    font-size: 14px;
+    font-family: var(--font-family-mono);
+    color: var(--text-primary);
+    word-break: break-all;
+    min-width: 200px;
+  }
+
+  .copy-btn,
+  .external-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.15s;
+
+    &:hover {
+      background: var(--accent-primary);
+      border-color: var(--accent-primary);
+      color: white;
+    }
+  }
+}
+
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.stat-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+
+  .stat-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: rgba(139, 92, 246, 0.1);
+    border-radius: 10px;
+    color: var(--accent-primary);
+  }
+
+  .stat-content {
+    .stat-label {
+      display: block;
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 2px;
+    }
+
+    .stat-value {
+      display: block;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-primary);
+      font-family: var(--font-family-mono);
+    }
+  }
+}
+
+.card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 24px;
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border-color);
+
+    .card-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text-primary);
+
+      svg {
+        color: var(--accent-primary);
+      }
+    }
+  }
+
+  .card-body {
+    padding: 20px;
+  }
+}
+
+.info-row {
+  display: flex;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border-color);
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  .label {
+    width: 140px;
+    font-size: 13px;
+    color: var(--text-muted);
+    flex-shrink: 0;
+  }
+
+  .value {
+    flex: 1;
+    font-size: 14px;
+    color: var(--text-primary);
+  }
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: capitalize;
+
+  &.success {
+    background: var(--color-success-bg);
+    color: var(--color-success);
+  }
+
+  &.failed {
+    background: var(--color-danger-bg);
+    color: var(--color-danger);
+  }
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+
+  th, td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  th {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+  }
+
+  td {
+    font-size: 13px;
+    color: var(--text-secondary);
+  }
+
+  tbody tr:hover {
+    background: var(--bg-hover);
+  }
+
+  .hash-link,
+  .address-link {
+    color: var(--text-link);
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .time-cell {
+    color: var(--text-muted);
+  }
+
+  .mono {
+    font-family: var(--font-family-mono);
+  }
+}
+
+// ─── Agents Grid ───────────────────────────────────────────────────────────
+
+.agents-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+  padding: 20px;
+}
+
+.agent-card-item {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.15s;
+
+  &:hover {
+    border-color: var(--accent-primary);
+    transform: translateY(-2px);
+  }
+
+  .agent-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+
+    .agent-avatar {
+      position: relative;
+
+      .status-dot {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        border: 2px solid var(--bg-tertiary);
+
+        &.active { background: var(--color-success); }
+        &.idle { background: var(--color-warning); }
+        &.offline { background: var(--text-muted); }
+      }
+    }
+
+    .agent-info {
+      .agent-name {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 4px;
+      }
+
+      .agent-status {
+        font-size: 11px;
+        font-weight: 600;
+        padding: 2px 8px;
+        border-radius: 4px;
+        text-transform: capitalize;
+
+        &.active { background: var(--color-success-bg); color: var(--color-success); }
+        &.idle { background: var(--color-warning-bg); color: var(--color-warning); }
+        &.offline { background: var(--bg-hover); color: var(--text-muted); }
+      }
+    }
+  }
+
+  .agent-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    flex: 1;
+  }
+
+  .agent-stats {
+    display: flex;
+    gap: 16px;
+
+    .stat {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+  }
+}
+
+// ─── Agent Detail ──────────────────────────────────────────────────────────
+
+.agent-detail-header {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 32px;
+
+  .agent-avatar-large {
+    position: relative;
+
+    .status-indicator {
+      position: absolute;
+      bottom: 4px;
+      right: 4px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: 3px solid var(--bg-primary);
+
+      &.active { background: var(--color-success); }
+      &.idle { background: var(--color-warning); }
+      &.offline { background: var(--text-muted); }
+    }
+  }
+
+  .agent-info {
+    .agent-name {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    .agent-desc {
+      font-size: 16px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .agent-status {
+      display: inline-flex;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: capitalize;
+
+      &.active { background: var(--color-success-bg); color: var(--color-success); }
+      &.idle { background: var(--color-warning-bg); color: var(--color-warning); }
+      &.offline { background: var(--bg-tertiary); color: var(--text-muted); }
+    }
+  }
+}
+
+.capabilities-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  .capability-badge {
+    padding: 6px 12px;
+    background: rgba(139, 92, 246, 0.1);
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--accent-primary);
+  }
+}
+
+// ─── Token Page ────────────────────────────────────────────────────────────
+
+.token-hero {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 32px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  margin-bottom: 24px;
+
+  .token-info {
+    h2 {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    p {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .token-address {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      .label {
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--accent-primary);
+      }
+
+      code {
+        font-size: 13px;
+        font-family: var(--font-family-mono);
+        color: var(--text-secondary);
+        background: var(--bg-tertiary);
+        padding: 6px 12px;
+        border-radius: 6px;
+      }
+    }
+  }
+}
+
+.token-links {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+
+  .token-link {
+    padding: 12px 24px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: all 0.15s;
+
+    &:hover {
+      background: var(--accent-primary);
+      border-color: var(--accent-primary);
+      color: white;
+    }
+  }
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.15s;
+
+  &-primary {
+    background: var(--accent-primary);
+    color: white;
+
+    &:hover {
+      background: var(--accent-primary-dark);
+    }
+  }
+}
+
+.text-muted {
+  color: var(--text-muted);
+}

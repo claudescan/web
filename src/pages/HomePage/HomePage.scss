@@ -1,0 +1,631 @@
+// ClaudeScan — HomePage Styles
+
+.home-page {
+  padding-bottom: 48px;
+}
+
+// ─── Hero Banner ───────────────────────────────────────────────────────────
+
+.hero-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 48px 0;
+  gap: 48px;
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    text-align: center;
+    padding: 32px 0;
+  }
+
+  .hero-content {
+    flex: 1;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: rgba(139, 92, 246, 0.1);
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--accent-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 16px;
+  }
+
+  .hero-title {
+    font-size: 48px;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 16px;
+    color: var(--text-primary);
+
+    .gradient-text {
+      background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 50%, #c4b5fd 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    @media (max-width: 768px) {
+      font-size: 32px;
+    }
+  }
+
+  .hero-subtitle {
+    font-size: 18px;
+    color: var(--text-muted);
+    margin-bottom: 32px;
+    max-width: 500px;
+
+    @media (max-width: 1024px) {
+      margin: 0 auto 32px;
+    }
+  }
+
+  .hero-stats {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 24px;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    @media (max-width: 1024px) {
+      justify-content: center;
+    }
+
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+
+      .stat-label {
+        font-size: 12px;
+        color: var(--text-muted);
+        margin-bottom: 4px;
+      }
+
+      .stat-value {
+        font-size: 24px;
+        font-weight: 700;
+        color: var(--text-primary);
+        font-family: var(--font-family-mono);
+      }
+
+      .stat-change {
+        font-size: 13px;
+        font-weight: 500;
+
+        &.positive { color: var(--color-success); }
+        &.negative { color: var(--color-danger); }
+      }
+    }
+
+    .stat-divider {
+      width: 1px;
+      height: 40px;
+      background: var(--border-color);
+
+      @media (max-width: 768px) {
+        width: 60px;
+        height: 1px;
+      }
+    }
+  }
+
+  .hero-contract {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    max-width: fit-content;
+
+    @media (max-width: 1024px) {
+      margin: 0 auto;
+    }
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      text-align: center;
+      padding: 16px;
+    }
+
+    .contract-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--accent-primary);
+      text-transform: uppercase;
+    }
+
+    .contract-value {
+      font-size: 13px;
+      font-family: var(--font-family-mono);
+      color: var(--text-primary);
+      background: var(--bg-tertiary);
+      padding: 6px 12px;
+      border-radius: 6px;
+
+      @media (max-width: 480px) {
+        font-size: 11px;
+        word-break: break-all;
+      }
+    }
+
+    .contract-copy {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      background: var(--accent-primary);
+      border: none;
+      border-radius: 8px;
+      color: white;
+      cursor: pointer;
+      transition: background 0.15s;
+
+      &:hover {
+        background: var(--accent-primary-dark);
+      }
+    }
+  }
+
+  .hero-visual {
+    flex-shrink: 0;
+    opacity: 0.8;
+
+    @media (max-width: 1024px) {
+      display: none;
+    }
+  }
+}
+
+// ─── Stats Row ─────────────────────────────────────────────────────────────
+
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.stat-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  transition: border-color 0.15s;
+
+  &:hover {
+    border-color: var(--accent-primary);
+  }
+
+  .stat-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: rgba(139, 92, 246, 0.1);
+    border-radius: 12px;
+    color: var(--accent-primary);
+  }
+
+  .stat-content {
+    display: flex;
+    flex-direction: column;
+
+    .stat-label {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 2px;
+    }
+
+    .stat-value {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--text-primary);
+      font-family: var(--font-family-mono);
+    }
+
+    .stat-sub {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .stat-change {
+      font-size: 12px;
+      font-weight: 500;
+
+      &.positive { color: var(--color-success); }
+      &.negative { color: var(--color-danger); }
+    }
+  }
+}
+
+// ─── Main Grid ─────────────────────────────────────────────────────────────
+
+.main-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 24px;
+
+  @media (max-width: 1200px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.side-column {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+// ─── Cards ─────────────────────────────────────────────────────────────────
+
+.card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  overflow: hidden;
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border-color);
+
+    .card-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text-primary);
+
+      svg {
+        color: var(--accent-primary);
+      }
+    }
+  }
+}
+
+// ─── Data Table ────────────────────────────────────────────────────────────
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+
+  th, td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  th {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  td {
+    font-size: 13px;
+    color: var(--text-secondary);
+  }
+
+  tbody tr {
+    transition: background 0.15s;
+
+    &:hover {
+      background: var(--bg-hover);
+    }
+
+    &:last-child td {
+      border-bottom: none;
+    }
+  }
+
+  .status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+
+    &.success { background: var(--color-success); }
+    &.failed { background: var(--color-danger); }
+  }
+
+  .hash-link,
+  .address-link {
+    color: var(--text-link);
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .time-cell {
+    color: var(--text-muted);
+  }
+
+  .mono {
+    font-family: var(--font-family-mono);
+  }
+}
+
+// ─── Action Badges ─────────────────────────────────────────────────────────
+
+.action-badge-wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.action-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 24px;
+  padding: 0 10px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+
+  background: rgba(107, 114, 128, 0.15);
+  color: #9ca3af;
+
+  &.buy { background: var(--color-success-bg); color: var(--color-success); }
+  &.sell { background: var(--color-danger-bg); color: var(--color-danger); }
+  &.swap { background: rgba(139, 92, 246, 0.15); color: var(--accent-primary); }
+  &.transfer { background: rgba(59, 130, 246, 0.15); color: #3b82f6; }
+  &.agent { background: rgba(236, 72, 153, 0.15); color: #ec4899; }
+
+  .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+
+    &.green { background: var(--color-success); }
+    &.red { background: var(--color-danger); }
+  }
+}
+
+.action-badge-counter {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 600;
+  background: var(--bg-tertiary);
+  color: var(--text-muted);
+}
+
+// ─── Agents Panel ──────────────────────────────────────────────────────────
+
+.agents-list {
+  padding: 8px 0;
+}
+
+.agent-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  text-decoration: none;
+  transition: background 0.15s;
+
+  &:hover {
+    background: var(--bg-hover);
+  }
+
+  .agent-avatar {
+    position: relative;
+    flex-shrink: 0;
+
+    .status-indicator {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: 2px solid var(--bg-secondary);
+
+      &.active { background: var(--color-success); }
+      &.idle { background: var(--color-warning); }
+      &.offline { background: var(--text-muted); }
+    }
+  }
+
+  .agent-info {
+    flex: 1;
+    min-width: 0;
+
+    .agent-name {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .agent-desc {
+      display: block;
+      font-size: 12px;
+      color: var(--text-muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
+  .agent-stats {
+    display: flex;
+    gap: 12px;
+
+    .agent-stat {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+  }
+
+  .agent-status {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: capitalize;
+
+    &.active { background: var(--color-success-bg); color: var(--color-success); }
+    &.idle { background: var(--color-warning-bg); color: var(--color-warning); }
+    &.offline { background: var(--bg-tertiary); color: var(--text-muted); }
+  }
+}
+
+// ─── Chart ─────────────────────────────────────────────────────────────────
+
+.chart-card {
+  .chart-body {
+    height: 200px;
+    padding: 20px;
+    display: flex;
+    gap: 12px;
+  }
+
+  .chart-y-axis {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 11px;
+    color: var(--text-muted);
+    font-family: var(--font-family-mono);
+    min-width: 30px;
+    text-align: right;
+  }
+
+  .chart-area {
+    flex: 1;
+
+    .chart-svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+// ─── View All Link ─────────────────────────────────────────────────────────
+
+.view-all-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-top: 1px solid var(--border-color);
+  transition: color 0.15s, background 0.15s;
+
+  &:hover {
+    color: var(--accent-primary);
+    background: var(--bg-hover);
+  }
+
+  svg {
+    margin-left: 6px;
+  }
+}
+
+// ─── Buttons ───────────────────────────────────────────────────────────────
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 32px;
+  padding: 0 14px;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.15s;
+
+  &-sm {
+    height: 28px;
+    padding: 0 10px;
+    font-size: 12px;
+  }
+
+  &-outline {
+    background: transparent;
+    color: var(--text-muted);
+    border: 1px solid var(--border-color);
+
+    &:hover {
+      border-color: var(--accent-primary);
+      color: var(--accent-primary);
+    }
+  }
+}
+
+.toggle-group {
+  display: inline-flex;
+  background: var(--bg-tertiary);
+  border-radius: 8px;
+  padding: 2px;
+
+  .toggle-btn {
+    padding: 4px 10px;
+    border: none;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-muted);
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.15s;
+
+    &:hover { color: var(--text-secondary); }
+    &.active {
+      background: var(--accent-primary);
+      color: white;
+    }
+  }
+}
