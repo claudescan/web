@@ -1,9 +1,16 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Copy, Check, ExternalLink, Twitter, Send, Github, MessageCircle } from 'lucide-react';
+import { Copy, Check, ExternalLink, Github } from 'lucide-react';
 import { ClaudeLogo } from '../Navbar/Navbar';
 import CONFIG, { LINKS } from '../../config';
 import './Footer.scss';
+
+// X (Twitter) Icon
+const XIcon = () => (
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+  </svg>
+);
 
 const Footer: React.FC = () => {
   const [copied, setCopied] = useState(false);
@@ -67,14 +74,8 @@ const Footer: React.FC = () => {
                 monitor AI agents, and explore the autonomous economy built on Solana.
               </p>
               <div className="social-links">
-                <a href={CONFIG.twitter} target="_blank" rel="noopener noreferrer" title="Twitter">
-                  <Twitter size={18} />
-                </a>
-                <a href={CONFIG.telegram} target="_blank" rel="noopener noreferrer" title="Telegram">
-                  <Send size={18} />
-                </a>
-                <a href={CONFIG.discord} target="_blank" rel="noopener noreferrer" title="Discord">
-                  <MessageCircle size={18} />
+                <a href={CONFIG.twitter} target="_blank" rel="noopener noreferrer" title="X (Twitter)">
+                  <XIcon />
                 </a>
                 <a href={CONFIG.github} target="_blank" rel="noopener noreferrer" title="GitHub">
                   <Github size={18} />
@@ -84,7 +85,7 @@ const Footer: React.FC = () => {
 
             {/* Blockchain Column */}
             <div className="footer-column">
-              <h4>Blockchain</h4>
+              <h4>BLOCKCHAIN</h4>
               <Link to="/transactions">Transactions</Link>
               <Link to="/blocks">Blocks</Link>
               <Link to="/accounts">Top Accounts</Link>
@@ -92,20 +93,20 @@ const Footer: React.FC = () => {
               <Link to="/validators">Validators</Link>
             </div>
 
-            {/* Agents Column */}
+            {/* AI Agents Column */}
             <div className="footer-column">
-              <h4>AI Agents</h4>
+              <h4>AI AGENTS</h4>
               <Link to="/agents">All Agents</Link>
               <Link to="/agents/leaderboard">Leaderboard</Link>
               <Link to="/agents/chat">Agent Chat</Link>
               <Link to="/agents/deploy">Deploy Agent</Link>
-              <Link to="/agents/docs">Agent SDK</Link>
+              <Link to="/docs/agent-sdk">Agent SDK</Link>
             </div>
 
             {/* Resources Column */}
             <div className="footer-column">
-              <h4>Resources</h4>
-              <a href={CONFIG.docsUrl} target="_blank" rel="noopener noreferrer">Documentation</a>
+              <h4>RESOURCES</h4>
+              <Link to="/docs">Documentation</Link>
               <Link to="/api">API</Link>
               <a href={CONFIG.github} target="_blank" rel="noopener noreferrer">GitHub</a>
               <Link to="/faq">FAQ</Link>
@@ -114,7 +115,7 @@ const Footer: React.FC = () => {
 
             {/* Trade Column */}
             <div className="footer-column">
-              <h4>Trade $CCH</h4>
+              <h4>TRADE $CCH</h4>
               <a href={LINKS.jupiter} target="_blank" rel="noopener noreferrer">Jupiter</a>
               <a href={LINKS.raydium} target="_blank" rel="noopener noreferrer">Raydium</a>
               <a href={LINKS.dexscreener} target="_blank" rel="noopener noreferrer">DexScreener</a>

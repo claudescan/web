@@ -7,19 +7,18 @@ export const CONFIG = {
   tokenSymbol: 'CCH',
   tokenName: 'Claude Chain',
   
-  // Contract Address - IMPORTANT: Display this prominently
+  // Contract Address
   contractAddress: 'zvDFbTf9wf4paJrKZs7pJ3xbvWW9QcXdsspSXthdCCH',
   
-  // URLs
+  // URLs - All on claudescan.io domain
   explorerUrl: 'https://claudescan.io',
-  websiteUrl: 'https://claudechain.ai',
-  docsUrl: 'https://docs.claudechain.ai',
+  docsUrl: 'https://claudescan.io/docs',
+  apiDocsUrl: 'https://claudescan.io/api',
   
-  // Social Links
-  twitter: 'https://twitter.com/ClaudeChain',
-  telegram: 'https://t.me/ClaudeChain',
-  discord: 'https://discord.gg/claudechain',
-  github: 'https://github.com/claudechain',
+  // Social Links - CORRECT ONES
+  twitter: 'https://x.com/claudescanio',
+  github: 'https://github.com/claudescan',
+  // No telegram or discord
   
   // Solana
   solanaRpc: 'https://api.mainnet-beta.solana.com',
@@ -28,19 +27,37 @@ export const CONFIG = {
   // Token Details
   tokenDecimals: 9,
   totalSupply: 1_000_000_000,
-  
-  // Features
-  enableAgents: true,
-  enableChat: true,
-  enableAnalytics: true,
 };
 
 export const LINKS = {
+  // External token links
   solscanToken: `https://solscan.io/token/${CONFIG.contractAddress}`,
   dexscreener: `https://dexscreener.com/solana/${CONFIG.contractAddress}`,
   birdeye: `https://birdeye.so/token/${CONFIG.contractAddress}`,
   jupiter: `https://jup.ag/swap/SOL-${CONFIG.contractAddress}`,
   raydium: `https://raydium.io/swap/?inputCurrency=sol&outputCurrency=${CONFIG.contractAddress}`,
+  
+  // Internal links (all on claudescan.io)
+  transactions: '/transactions',
+  blocks: '/blocks',
+  accounts: '/accounts',
+  tokens: '/tokens',
+  validators: '/validators',
+  
+  // Agents
+  agents: '/agents',
+  agentLeaderboard: '/agents/leaderboard',
+  agentChat: '/agents/chat',
+  agentDeploy: '/agents/deploy',
+  agentSDK: '/docs/agent-sdk',
+  
+  // Resources
+  docs: '/docs',
+  api: '/api',
+  faq: '/faq',
+  contact: '/contact',
+  privacy: '/privacy',
+  terms: '/terms',
 };
 
 export default CONFIG;

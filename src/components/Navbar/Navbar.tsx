@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Search, ChevronDown, Menu, X, Copy, Check, ExternalLink } from 'lucide-react';
-import { fetchCCHPrice } from '../../services/api';
+import { fetchNetworkStats } from '../../services/api';
 import CONFIG, { LINKS } from '../../config';
 import './Navbar.scss';
 
@@ -134,8 +134,8 @@ const Navbar: React.FC = () => {
   useEffect(() => {
     const loadPrice = async () => {
       try {
-        const data = await fetchCCHPrice();
-        setPrice({ price: data.price, change24h: data.change24h });
+        const stats = await fetchNetworkStats();
+        setPrice({ price: stats.price, change24h: stats.priceChange24h });
       } catch (err) {
         console.error('Failed to fetch price:', err);
       }
@@ -151,11 +151,8 @@ const Navbar: React.FC = () => {
     
     const query = searchQuery.trim();
     
-    if (query.length >= 43 && query.length <= 44) {
-      // Could be address or signature
-      if (query.match(/^[1-9A-HJ-NP-Za-km-z]{43,44}$/)) {
-        navigate(`/tx/${query}`);
-      }
+    if (query.length >= 43 && query.length <= 88) {
+      navigate(`/tx/${query}`);
     } else if (query.match(/^[1-9A-HJ-NP-Za-km-z]{32,44}$/)) {
       navigate(`/account/${query}`);
     } else if (/^\d+$/.test(query)) {
@@ -171,24 +168,32 @@ const Navbar: React.FC = () => {
     blockchain: [
       { label: 'Transactions', to: '/transactions' },
       { label: 'Blocks', to: '/blocks' },
-      { label: 'Accounts', to: '/accounts' },
+      { label: 'Top Accounts', to: '/accounts' },
     ],
     tokens: [
       { label: '$CCH Token', to: '/token/CCH' },
       { label: 'All Tokens', to: '/tokens' },
       { label: 'DexScreener', to: LINKS.dexscreener, external: true },
-      { label: 'Jupiter Swap', to: LINKS.jupiter, external: true },
+      { label: 'Jupiter', to: LINKS.jupiter, external: true },
     ],
     agents: [
       { label: 'All Agents', to: '/agents' },
       { label: 'Leaderboard', to: '/agents/leaderboard' },
       { label: 'Agent Chat', to: '/agents/chat' },
+      { label: 'Deploy Agent', to: '/agents/deploy' },
     ],
     resources: [
-      { label: 'Documentation', to: CONFIG.docsUrl, external: true },
+      { label: 'Documentation', to: '/docs' },
       { label: 'API', to: '/api' },
       { label: 'GitHub', to: CONFIG.github, external: true },
     ],
+  };
+
+  const formatPrice = (p: number) => {
+    if (p === 0) return '$—';
+    if (p < 0.0001) return `$${p.toFixed(8)}`;
+    if (p < 0.01) return `$${p.toFixed(6)}`;
+    return `$${p.toFixed(4)}`;
   };
 
   return (
@@ -204,10 +209,12 @@ const Navbar: React.FC = () => {
           <div className="price-badge">
             <ClaudeLogo size={18} />
             <span className="symbol">$CCH</span>
-            <span className="price">${price.price.toFixed(4)}</span>
-            <span className={`change ${price.change24h >= 0 ? 'positive' : 'negative'}`}>
-              {price.change24h >= 0 ? '+' : ''}{price.change24h.toFixed(2)}%
-            </span>
+            <span className="price">{formatPrice(price.price)}</span>
+            {price.change24h !== 0 && (
+              <span className={`change ${price.change24h >= 0 ? 'positive' : 'negative'}`}>
+                {price.change24h >= 0 ? '+' : ''}{price.change24h.toFixed(2)}%
+              </span>
+            )}
           </div>
 
           <ContractBadge />
@@ -248,13 +255,11 @@ const Navbar: React.FC = () => {
 
       {/* Contract Address Banner */}
       <div className="contract-banner">
-        <span className="banner-label">Contract Address:</span>
+        <span className="banner-label">CONTRACT ADDRESS:</span>
         <span className="banner-address">{CONFIG.contractAddress}</span>
         <button 
           className="banner-copy"
-          onClick={() => {
-            navigator.clipboard.writeText(CONFIG.contractAddress);
-          }}
+          onClick={() => navigator.clipboard.writeText(CONFIG.contractAddress)}
         >
           <Copy size={14} /> Copy
         </button>
@@ -274,6 +279,8 @@ const Navbar: React.FC = () => {
           <Link to="/blocks" onClick={() => setMobileMenuOpen(false)}>Blocks</Link>
           <Link to="/tokens" onClick={() => setMobileMenuOpen(false)}>Tokens</Link>
           <Link to="/agents" onClick={() => setMobileMenuOpen(false)}>Agents</Link>
+          <Link to="/agents/chat" onClick={() => setMobileMenuOpen(false)}>Agent Chat</Link>
+          <Link to="/docs" onClick={() => setMobileMenuOpen(false)}>Docs</Link>
         </div>
       )}
     </nav>
