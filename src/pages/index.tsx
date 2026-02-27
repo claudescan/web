@@ -5,11 +5,11 @@ import { ArrowLeft, Copy, Check, ExternalLink, Activity, Cpu, Users, Clock, Mess
 import { 
   fetchTransactions, fetchTransaction, fetchAccount, fetchAgents, fetchAgent,
   CCH_TOKEN_ADDRESS
-} from './services/api';
-import type { Transaction, Account, Agent } from './services/api';
-import { ClaudeLogo } from './components/Navbar/Navbar';
-import CONFIG, { LINKS } from './config';
-import './pages/Pages.scss';
+} from '../services/api';
+import type { Transaction, Account, Agent } from '../services/api';
+import { ClaudeLogo } from '../components/Navbar/Navbar';
+import CONFIG, { LINKS } from '../config';
+import './Pages.scss';
 
 // ─── Transactions Page ─────────────────────────────────────────────────────
 
